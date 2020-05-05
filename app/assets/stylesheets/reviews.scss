@@ -1,6 +1,16 @@
-// Place all the styles related to the reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+img{
+  height: 300px;
+  width: 300px;
+}
+
+h1{
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+}
+
 .top {
   background: image-url('game');
   background-size: cover;
@@ -8,4 +18,14 @@
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
+}
+
+.genre{
+  display: inline;
+}
+
+.game {
+  display: flex;
+  height: auto;
+  width:90%;
 }

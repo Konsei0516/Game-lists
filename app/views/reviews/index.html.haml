@@ -1,3 +1,42 @@
+= render "component/header"
 .top
   .top-jambo
-    %h1 Game review
+.genre-wrapper
+  .container
+    .heading
+      %h2 ゲームジャンルの一例
+    .genre
+      %ul.game
+        %li.game-img1
+          %a{:href => "http://www.capcom.co.jp/monsterhunter/world/", :target => "_blank"}
+            = image_tag asset_path("MHWIB.png", alt: "ゲーム画像1")
+        %li.game-img2
+          %a{:href => "https://www.callofduty.com/ja/", :target => "_blank"}
+            = image_tag asset_path("sekiro.jpg", alt: "ゲーム画像2")
+        %li.game-img3
+          %a{:href => "https://playoverwatch.com/ja-jp/", :target => "_blank"}
+            = image_tag asset_path("Overwatch.jpg", alt: "ゲーム画像3")
+        %li.game-img4
+          %a{:href => "https://www.jp.playstation.com/games/dead-by-daylight-ps4/", :target => "_blank"}
+            = image_tag asset_path("DBD.jpg", alt: "ゲーム画像4")
+        %li.game-img5
+          %a{:href => "https://www.epicgames.com/fortnite/ja/home", :target => "_blank"}
+            = image_tag asset_path("fortnite.jpg", alt: "ゲーム画像5")
+        %li.game-img6
+          %a{:href => "https://www.minecraft.net/ja-jp/", :target => "_blank"}
+            = image_tag asset_path("minecraft.jpg", alt: "ゲーム画像6")
+        %li.game-img7
+          %a{:href => "https://www.ea.com/ja-jp/games/apex-legends", :target => "_blank"}
+            = image_tag asset_path("Apex.jpg", alt: "ゲーム画像7")
+        %li.game-img8
+          %a{:href => "http://pubg.dmm.com/", :target => "_blank"}
+            = image_tag asset_path("six.jpg", alt:"ゲーム画像8")
+        %li.game-img9
+          %a{:href => "https://www.smashbros.com/ja_JP/", :target => "_blank"}
+            = image_tag asset_path("suma.png", alt: "ゲーム画像9")
+        %li.game-img10
+          %a{:href => "https://www.nintendo.co.jp/switch/aab6a/index.html", :target => "_blank"}
+            = image_tag asset_path("splatoon.jpg", alt: "ゲーム画像10")
+%section.index
+  .index-box
+    %h2 投稿一覧
