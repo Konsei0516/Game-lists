@@ -14,8 +14,8 @@ h2{
 .top {
   background: image-url('game');
   background-size: cover;
-  //background-position: center top;
-  //background-repeat: no-repeat;
+  background-position: center top;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
 }
@@ -42,7 +42,6 @@ h2{
 }
 
 @-webkit-keyframes slider {
-	/* 100%を枚数で割った%に割り振る */
 	0% {
 	-webkit-transform: translateX(0);
 	transform: translateX(0);
