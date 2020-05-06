@@ -1,0 +1,23 @@
+.header {
+  width:100%;
+  height: 100px;
+  color:white;
+  background-color: cyan;
+  font-size: 24px;
+  position: fixed;
+  .header-nav{
+    float: left;
+  }
+  .header-contents{
+    display: flex;
+    list-style: none;
+    padding-left:480px;
+    &__content{
+      padding:16px;
+    }
+  }
+}
+
+.app-name{
+  padding:10px;
+}
