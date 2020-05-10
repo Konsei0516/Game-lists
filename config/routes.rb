@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: "reviews#index"
-  resources :review
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :review do
+    collection do
+      get 'rakuten_search', to: 'reviews#rakuten_search'
+    end
+  end
 end

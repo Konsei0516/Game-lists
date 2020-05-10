@@ -1,0 +1,23 @@
+%h1 楽天でゲームを検索する
+= form_tag rakuten_search_review_index_path, method: :get do
+  = label_tag :keyword, 'キーワード検索'
+  = text_field_tag 'keyword', params[:keyword]
+  = submit_tag "検索"
+%table
+  %thead
+    %tr
+      %th 商品名
+      %th 価格
+      %th 画像
+  %tbody
+    - if @items.present?
+      - @items.each do |item|
+        %tr
+          %td= link_to item.name, "#{item.url}"
+          %td{:align => "right"}
+            = number_with_delimiter(item.price)
+            円
+          %td
+            %img{:src => "#{item['smallImageUrls'][0]}"}/
+  = link_to root_path do
+    トップへ
