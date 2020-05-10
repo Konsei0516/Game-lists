@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true #追記
+  validates :name, presence: true
   validates :profile, length: { maximum: 200 }
 end
