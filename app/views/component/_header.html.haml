@@ -2,14 +2,20 @@
   .header-nav
     %h1.app-name
       Game review
-    //-if user_signed_in?
-  %ul.header-contents
-    %li.header-contents__content
-      ユーザー様
-    %li.header-contents__content
-      新規投稿
-    %li.header-contents__content
-      = link_to rakuten_search_review_index_path do
-        楽天検索
-    %li.header-contents__content
-      ログアウト
+  -if user_signed_in?
+    %ul.header-contents
+      %li.header-contents__content
+        ユーザー様
+      %li.header-contents__content
+        新規投稿
+      %li.header-contents__content
+        = link_to rakuten_search_review_index_path do
+          楽天検索
+      %li.header-contents__content
+        ログアウト
+  -else
+    %ul.header-contents
+      %li.header-contents__content
+        ログイン
+      %li.header-contents__content
+        新規登録
