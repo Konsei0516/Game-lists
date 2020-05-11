@@ -1,5 +1,5 @@
 %h1 楽天でゲームを検索する
-= form_tag rakuten_search_review_index_path, method: :get do
+= form_tag rakuten_search_reviews_path, method: :get do
   = label_tag :keyword, 'キーワード検索'
   = text_field_tag 'keyword', params[:keyword]
   = submit_tag "検索"

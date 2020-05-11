@@ -2,14 +2,26 @@
   .header-nav
     %h1.app-name
       Game review
-    //-if user_signed_in?
-  %ul.header-contents
-    %li.header-contents__content
-      ユーザー様
-    %li.header-contents__content
-      新規投稿
-    %li.header-contents__content
-      = link_to rakuten_search_review_index_path do
-        楽天検索
-    %li.header-contents__content
-      ログアウト
+  -if user_signed_in?
+    %ul.header-contents
+      %li.header-contents__content
+        = link_to user_path(current_user) do
+          = current_user.name
+      %li.header-contents__content
+        新規投稿
+      %li.header-contents__content
+        = link_to rakuten_search_reviews_path do
+          楽天検索
+      %li.header-contents__content
+        = link_to destroy_user_session_path, method: :delete do
+          ログアウト
+  -else
+    %ul.header-contents
+      %li.header-contents__content
+        ログイン
+      %li.header-contents__content
+        新規登録
+  %p.notice
+    = notice
+  %p.alert
+    = alert 
