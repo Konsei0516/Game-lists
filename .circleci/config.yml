@@ -10,5 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-        name: RuboCop
-        command: bundle exec rubocop
+          name: Which bundler?
+          command: bundle -v
+      - ruby/bundle-install
