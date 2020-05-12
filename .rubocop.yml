@@ -1,0 +1,35 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - "node_modules/**/*" # rubocop config/default.yml
+    - "vendor/**/*"       # rubocop config/default.yml
+    - "db/schema.rb"
+    - db/migrate/*
+
+# Rails向けのRails copsを実行。"rubocop -R"と同じ
+  Rails:
+    enabled: true
+
+# "Missing top-level class documentation comment."を無効
+Style/Documentation:
+  Enabled: false
+
+# "Prefer single-quoted strings when you don't need string interpolation or special symbols."を無効
+Style/StringLiterals:
+  Enabled: false
+
+# "Line is too long"を無効
+Metrics/LineLength:
+  Enabled: false
+
+#'frozen_string_literal: true'を無効
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
+  Enabled: false
+
+Lint/LiteralAsCondition:
+  Enabled: false
