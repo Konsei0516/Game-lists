@@ -23,4 +23,6 @@
           %p.movie_date= snippet.published_at.strftime("%Y年%m月%d日 %H時%M分")
           .movie
             %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "160", :src => "https://www.youtube.com/embed/#{item.id.video_id}", :width => "220"}
+= link_to root_path do
+    トップへ
 
