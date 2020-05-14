@@ -1,0 +1,28 @@
+.container
+  .youtube
+    = form_with(url: youtubes_index_path, local: true, method: :get, class: "search-form") do |form|
+      .row.justify-content-center
+        %i.fab.fa-youtube.col-1
+        .col-10.col-sm-8
+          = form.text_field :keyword, placeholder: "検索する", class: "search-input col-sm-12"
+          #order.row
+            .radio-btn.col-10.col-sm-12.col-md-3
+              = form.radio_button :order, :relevance
+              = form.label :order, "通常検索", {value: :relevance}
+            .radio-btn.col-10.col-sm-12.col-md-4
+              = form.radio_button :order, :viewCount
+              = form.label :order, "再生回数が多い順", {value: :viewCount}
+        = form.submit "検索", class: "search-btn col-6 col-sm-1"
+  .contents.row
+    - if @youtube_data != nil
+      - @youtube_data.items.each do |item|
+        .content.col-6.col-md-4.col-lg-3
+          - snippet = item.snippet
+          %p.movie_title= snippet.title
+          %p.channel_title= snippet.channel_title
+          %p.movie_date= snippet.published_at.strftime("%Y年%m月%d日 %H時%M分")
+          .movie
+            %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "160", :src => "https://www.youtube.com/embed/#{item.id.video_id}", :width => "220"}
+  = link_to root_path do
+    トップへ
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'youtubes/index'
   devise_for :users, controllers:{
     registrations: 'users/registrations'
   }
