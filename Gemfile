@@ -66,3 +66,5 @@ gem 'rakuten_web_service'
 gem 'google-api-client', '~> 0.11.1'
 gem 'trollop'
 gem 'devise'
+
+gem 'dotenv-rails'
