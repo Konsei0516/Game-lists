@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '285dcf14fe9cea55f854be9c4ed98063243759bafa2988cf164b89728dd00c61a2fbeb416ca37d4bfba81ff238044dd505d6dc0ff068ebb7c270675c8deb4744'
-
+  config.omniauth :twitter, ENV['TWITTER_CONSUMER_KEY'], ENV['TWITTER_CONSUMER_SECRET'], callback_url: "http://localhost:3000//users/auth/twitter/callback"
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
