@@ -68,3 +68,6 @@ gem 'trollop'
 gem 'devise'
 
 gem 'dotenv-rails'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
