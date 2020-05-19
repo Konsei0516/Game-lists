@@ -4,9 +4,20 @@
   価格
   = f.text_field :description
   #image-box
+    #previews
+      - if @review.persisted?
+        - @review.images.each_with_index do |image, i|
+          = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
     = f.fields_for :images do |image|
       .js-file_group{"data-index" => "#{image.index}"}
         = image.file_field :src, class: 'js-file'
         %br/
         %span.js-remove 削除
+      - if @review.persisted?
+        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+    - if @review.persisted?
+      .js-file_group{"data-index" => "#{@review.images.count}"}
+        = file_field_tag :src, name: "product[images_attributes][#{@review.images.count}][src]", class: 'js-file'
+        .js-remove 削除
   = f.submit
+

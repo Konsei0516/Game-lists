@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :set_review, except: [:index, :new, :create]
+
   def index
     @reviews = Review.includes(:images).order('created_at DESC')
   end
@@ -21,6 +23,11 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    if @review.update(review_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -36,5 +43,9 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:title, :descreption, images_attributes: [:src])
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 end
