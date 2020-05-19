@@ -1,0 +1,9 @@
+= form_for @review do |f|
+  タイトル名
+  = f.text_field :title
+  説明
+  = f.text_field :description
+  写真
+  = f.fields_for :images do |i|
+    = i.file_field :src
+  = f.submit
