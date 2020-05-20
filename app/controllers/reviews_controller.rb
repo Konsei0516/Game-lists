@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, except: [:index, :new, :create]
+  before_action :set_review, except: [:index, :new, :create,:rakuten_search]
 
   def index
     @reviews = Review.includes(:images).order('created_at DESC')
@@ -31,6 +31,8 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review.destroy
+    redirect_to root_path
   end
 
   def rakuten_search

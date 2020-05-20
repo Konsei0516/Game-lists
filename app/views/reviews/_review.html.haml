@@ -1,8 +1,9 @@
 .content
   %p
-    = product.title
+    = review.title
   %p
-    = product.description
+    = review.description
     円
-  - product.images.each do |image|
+  - review.images.each do |image|
     = image_tag image.src.url
+= link_to '削除', review_path(review), method: :delete

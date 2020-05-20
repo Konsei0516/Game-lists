@@ -1,7 +1,7 @@
 = form_for @review do |f|
-  商品名
+  タイトル名
   = f.text_field :title
-  価格
+  説明
   = f.text_field :description
   #image-box
     #previews
@@ -20,4 +20,10 @@
         = file_field_tag :src, name: "product[images_attributes][#{@review.images.count}][src]", class: 'js-file'
         .js-remove 削除
   = f.submit
+
+  = link_to root_path do
+    トップへ
+
+
+
 
