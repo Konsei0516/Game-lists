@@ -44,7 +44,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :descreption, images_attributes: [:src])
+    params.require(:review).permit(:title, :descreption, :rate,images_attributes: [:src])
   end
 
   def set_review

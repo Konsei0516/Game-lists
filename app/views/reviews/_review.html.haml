@@ -4,7 +4,8 @@
   %p
     = review.description
   %h4.mb-3
-    評価：#{review.rate}点
+    評価：
+    = review.rate
   %div{:id => "star-rate-#{review.id}"}
   :javascript
     $('#star-rate-#{review.id}').raty({
