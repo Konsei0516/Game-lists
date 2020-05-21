@@ -3,7 +3,20 @@
     = review.title
   %p
     = review.description
-    円
+  %h4.mb-3
+    評価：#{review.rate}点
+  %div{:id => "star-rate-#{review.id}"}
+  :javascript
+    $('#star-rate-#{review.id}').raty({
+      size: 36,
+      starOff:  '#{asset_path('star-off.png')}',
+      starOn : '#{asset_path('star-on.png')}',
+      starHalf: '#{asset_path('star-half.png')}',
+      half: true,
+      readOnly: true,
+      score: #{review.rate},
+    });
+
   - review.images.each do |image|
     = image_tag image.src.url
 = link_to '編集', edit_review_path(review)

@@ -5,46 +5,38 @@
   .container
     .heading
       %h2 ゲームジャンルの一例
-    %ul
-    - if user_signed_in?
-      %li= current_user.name
-      %li= current_user.nickname
-      %li= current_user.location
-      %li= link_to "ログアウト", destroy_user_session_path, method: :delete
-    - else
-      %li= link_to "ログイン", new_user_session_path
     .genre
       .game
         .game-img
-          %a{:href => "http://www.capcom.co.jp/monsterhunter/world/", :target => "_blank"}
-            = image_tag asset_path("MHWIB.png", alt: "ゲーム画像1")
+          %a{:href => "http://www.capcom.co.jp/monsterhunter/world/", :target => "_blank", class:"game-img__image"}
+            = image_tag asset_path("MHWIB.png", alt: "ゲーム画像1"),width: "300", height: '240'
         .game-img
-          %a{:href => "https://www.sekiro.jp/", :target => "_blank"}
-            = image_tag asset_path("sekiro.jpg", alt: "ゲーム画像2")
+          %a{:href => "https://www.sekiro.jp/", :target => "_blank", class:"game-img__image"}
+            = image_tag asset_path("sekiro.jpg", alt: "ゲーム画像2"),width: "300", height: '240'
         .game-img
-          %a{:href => "https://playoverwatch.com/ja-jp/", :target => "_blank"}
-            = image_tag asset_path("Overwatch.jpg", alt: "ゲーム画像3")
+          %a{:href => "https://playoverwatch.com/ja-jp/", :target => "_blank", class:"game-img__image"}
+            = image_tag asset_path("Overwatch.jpg", alt: "ゲーム画像3"),width: "300", height: '240'
         .game-img
-          %a{:href => "https://www.jp.playstation.com/games/dead-by-daylight-ps4/", :target => "_blank"}
-            = image_tag asset_path("DBD.jpg", alt: "ゲーム画像4")
+          %a{:href => "https://www.jp.playstation.com/games/dead-by-daylight-ps4/", :target => "_blank", class:"game-img__image"}
+            = image_tag asset_path("DBD.jpg", alt: "ゲーム画像4"),width: "300", height: '240'
         .game-img
-          %a{:href => "https://www.epicgames.com/fortnite/ja/home", :target => "_blank"}
-            = image_tag asset_path("fortnite.jpg", alt: "ゲーム画像5")
+          %a{:href => "https://www.epicgames.com/fortnite/ja/home", :target => "_blank", class:"game-img__image"}
+            = image_tag asset_path("fortnite.jpg", alt: "ゲーム画像5"),width: "300", height: '240'
         .game-img
-          %a{:href => "https://www.minecraft.net/ja-jp/", :target => "_blank"}
-            = image_tag asset_path("minecraft.jpg", alt: "ゲーム画像6")
+          %a{:href => "https://www.minecraft.net/ja-jp/", :target => "_blank", class:"game-img__image"}
+            = image_tag asset_path("minecraft.jpg", alt: "ゲーム画像6"),width: "300", height: '240'
         .game-img
-          %a{:href => "https://www.ea.com/ja-jp/games/apex-legends", :target => "_blank"}
-            = image_tag asset_path("Apex.jpg", alt: "ゲーム画像7")
+          %a{:href => "https://www.ea.com/ja-jp/games/apex-legends", :target => "_blank", class:"game-img__image"}
+            = image_tag asset_path("Apex.jpg", alt: "ゲーム画像7"),width: "300", height: '240'
         .game-img
-          %a{:href => "https://ubisoft.co.jp/r6s/", :target => "_blank"}
-            = image_tag asset_path("six.jpg", alt:"ゲーム画像8")
+          %a{:href => "https://ubisoft.co.jp/r6s/", :target => "_blank", class:"game-img__image"}
+            = image_tag asset_path("six.jpg", alt:"ゲーム画像8"),width: "300", height: '240'
         .game-img
-          %a{:href => "https://www.smashbros.com/ja_JP/", :target => "_blank"}
-            = image_tag asset_path("suma.png", alt: "ゲーム画像9")
+          %a{:href => "https://www.smashbros.com/ja_JP/", :target => "_blank", class:"game-img__image"}
+            = image_tag asset_path("suma.png", alt: "ゲーム画像9"),width: "300", height: '240'
         .game-img
-          %a{:href => "https://www.nintendo.co.jp/switch/aab6a/index.html", :target => "_blank"}
-            = image_tag asset_path("splatoon.jpg", alt: "ゲーム画像10")
+          %a{:href => "https://www.nintendo.co.jp/switch/aab6a/index.html", :target => "_blank", class:"game-img__image"}
+            = image_tag asset_path("splatoon.jpg", alt: "ゲーム画像10"),width: "300", height: '240'
 %section.index
   .index-box
     %h2 投稿一覧
