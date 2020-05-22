@@ -17,6 +17,15 @@
       line-height: 80px;
     }
   }
+  .header-log{
+    display: flex;
+    list-style: none;
+    padding-left:720px;
+    &__sign{
+      padding:16px;
+      line-height: 80px;
+    }
+  }
 }
 
 .app-name{
