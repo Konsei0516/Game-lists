@@ -20,9 +20,11 @@
         = link_to destroy_user_session_path, method: :delete do
           ログアウト
   -else
-    %ul.header-contents
-      %li.header-contents__content
-        ログイン
-      %li.header-contents__content
-        新規登録
-  = render "component/notifications"
+    %ul.header-log
+      %li.header-log__sign
+        = link_to new_user_session_path do
+          ログイン
+      %li.header-log__sign
+        = link_to new_user_registration_path do
+          新規登録
+= render "component/notifications"
