@@ -1,8 +1,3 @@
-img{
-  height: 240px;
-  width: 300px;
-}
-
 h1{
   text-align: center;
 }
@@ -34,12 +29,15 @@ h2{
 
 .game {
   animation: slider 20s infinite ease;/* スピード */
-  display: flex;
-  .game-ima{
-    width: 300px;
-    height: 200px;
-  }
+	display: flex;
+	&-img{
+		&__image{
+			width: 300px;
+			height: 200px;
+		}
+	}
 }
+
 
 @-webkit-keyframes slider {
 	0% {
@@ -94,3 +92,4 @@ h2{
 	transform: translateX(0);
 	}
 }
+

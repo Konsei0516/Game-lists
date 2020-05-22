@@ -1,0 +1,38 @@
+= form_for @review do |f|
+  タイトル名
+  = f.text_field :title
+  説明
+  = f.text_field :description
+  #star.form-group.row
+    = f.label :rate,'評価', class:'col-md-3 col-form-label'
+    = f.hidden_field :rate, id: :review_star
+  #image-box
+    #previews
+      - if @review.persisted?
+        - @review.images.each_with_index do |image, i|
+          = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+    = f.fields_for :images do |image|
+      .js-file_group{"data-index" => "#{image.index}"}
+        = image.file_field :src, class: 'js-file'
+        %br/
+        %span.js-remove 削除
+      - if @review.persisted?
+        = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+    - if @review.persisted?
+      .js-file_group{"data-index" => "#{@review.images.count}"}
+        = file_field_tag :src, name: "product[images_attributes][#{@review.images.count}][src]", class: 'js-file'
+        .js-remove 削除
+  = f.submit
+
+  = link_to root_path do
+    トップへ
+
+:javascript
+  $('#star').raty({
+    size   : 36,
+    starOff: '#{asset_path('star-off.png')}',
+    starOn : '#{asset_path('star-on.png')}',
+    starHalf: '#{asset_path('star-half.png')}',
+    scoreName: 'review[rate]',
+    half: true,
+  }); 
