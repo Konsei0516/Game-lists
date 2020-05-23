@@ -17,6 +17,8 @@
       readOnly: true,
       score: #{review.rate},
     });
+  - review.categories.each do |category|
+    = category.name
 
   - review.images.each do |image|
     = image_tag image.src.url
