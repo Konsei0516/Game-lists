@@ -41,4 +41,5 @@
   .index-box
     %h2 投稿一覧
     .contents
-      = render @reviews
+      = link_to review_path(@reviews) do
+        = render @reviews

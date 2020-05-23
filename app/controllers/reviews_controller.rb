@@ -12,6 +12,11 @@ class ReviewsController < ApplicationController
     @review.images.new
   end
 
+  def show
+    @word = Word.find(params[:id])
+    @user = User.find(@word.user_id)
+  end
+
   def create
     @review = Review.new(review_params)
     if @review.save
