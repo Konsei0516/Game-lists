@@ -1,9 +1,8 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, except: [:new, :create,:rakuten_search]
+  before_action :set_review, except: [:index,:new, :create,:rakuten_search]
   before_action :set_category, only: %i[index new create edit update]
 
   def index
-    @category = Category.find(params[:category_id])
     @reviews = Review.includes(:images).order('created_at DESC')
   end
 
@@ -13,8 +12,6 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @word = Word.find(params[:id])
-    @user = User.find(@word.user_id)
   end
 
   def create
