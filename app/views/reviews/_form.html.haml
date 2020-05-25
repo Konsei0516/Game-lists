@@ -15,17 +15,15 @@
       = category.label do
         = category.check_box
         = category.text
-  #image-box.sent-image
-    %h3 画像を設定
-    .sent-image__box
-      .sent-image__box__file
-        #previews
-        - if @review.persisted?
-          - @review.images.each_with_index do |image, i|
-            = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-        = f.fields_for :images do |image|
-          .js-file_group{"data-index" => "#{image.index}"}
-            = image.file_field :src, class: 'js-file'
+  #image-box
+    %h3 画像投稿
+    #previews
+      - if @review.persisted?
+        - @review.images.each_with_index do |image, i|
+          = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+    = f.fields_for :images do |image|
+      .js-file_group{"data-index" => "#{image.index}"}
+        = image.file_field :src, class: 'js-file'
         %br/
       %span.js-remove 削除
       - if @review.persisted?
