@@ -1,0 +1,22 @@
+@mixin formBase{
+  width: 100%;
+  margin: 8px 0 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.review-field{
+  @include formBase;
+  height: 48px;
+  padding: 10px 16px 8px;
+}
+
+.review-text{
+  @include formBase;
+  display: block;
+  min-height: 104px;
+  padding: 10px;
+}

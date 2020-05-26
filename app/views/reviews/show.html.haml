@@ -18,7 +18,7 @@
 - @review.categories.each do |category|
   = category.name
 - @review.images.each do |image|
-  = image_tag image.src.url
+  = image_tag image.image.url
 
   = link_to root_path do
     トップへ
