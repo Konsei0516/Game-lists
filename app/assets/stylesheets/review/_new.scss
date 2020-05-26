@@ -1,5 +1,23 @@
-.review-field{
-  border: 1px solid rgb(194, 96, 96);
+.sent{
+  margin:0 auto;
+  max-width: 1080px;
+  height: auto;
+  &-title{
+    padding:0.8rem;
+  }
+  &-description{
+    padding:0.8rem;
+  }
+  &-category{
+    padding:0.8rem;
+  }
+  &-image{
+    padding:0.8rem;
+  }
+}
+
+#star{
+  padding:0.8rem;
 }
 
 .post__drop__box__container{

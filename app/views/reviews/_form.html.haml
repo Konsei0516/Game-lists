@@ -1,36 +1,40 @@
-= form_for @review do |f|
-  .sent-title
-    %h3 タイトル名
-    = f.text_field :title, class: "review-field"
-  .sent-description
-    %h3 説明
-    = f.text_field :description, class: "review-field"
-  #star
-    .sent-rate
-      %h3= f.label :rate,'評価', class:'col-md-3 col-form-label'
-      = f.hidden_field :rate, id: :review_star
-  .sent-category
-    %h3= f.label :category, 'カテゴリ'
-    = f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category|
-      = category.label do
-        = category.check_box
-        = category.text
-  .post__drop__box__container
-    .prev-content
-    .label-content
-      %label{for: "review_images_attributes_0_image", class: "label-box", id: "label-box--0"}
-        %pre.label-box__text-visible クリックしてファイルをアップロード
-    .hidden-content
-      = f.fields_for :images do |i|
-        = i.file_field :image, class: "hidden-field"
-        %input{class:"hidden-field", type: "file", name: "review[images_attributes][1][image]", id: "review_images_attributes_1_image" }
-        %input{class:"hidden-field", type: "file", name: "review[images_attributes][2][image]", id: "review_images_attributes_2_image" }
-        %input{class:"hidden-field", type: "file", name: "review[images_attributes][3][image]", id: "review_images_attributes_3_image" }
-        %input{class:"hidden-field", type: "file", name: "review[images_attributes][4][image]", id: "review_images_attributes_4_image" }
-  = f.submit 'レビューを投稿', class: 'btn'
+.sent
+  %h1 ゲームレビュー
+  = form_for @review do |f|
+    .sent-title
+      %h3 タイトル名
+      = f.text_field :title, class: "review-field"
+    .sent-description
+      %h3 説明
+      = f.text_field :description, class: "review-text"
+    #star
+      .sent-rate
+        %h3= f.label :rate,'評価', class:'col-md-3 col-form-label'
+        = f.hidden_field :rate, id: :review_star
+    .sent-category
+      %h3= f.label :category, 'カテゴリ'
+      = f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category|
+        = category.label do
+          = category.check_box
+          = category.text
+    .sent-image
+      %h3 画像
+      .post__drop__box__container
+        .prev-content
+        .label-content
+          %label{for: "review_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+            %pre.label-box__text-visible クリックしてファイルをアップロード
+        .hidden-content
+          = f.fields_for :images do |i|
+            = i.file_field :image, class: "hidden-field"
+            %input{class:"hidden-field", type: "file", name: "review[images_attributes][1][image]", id: "review_images_attributes_1_image" }
+            %input{class:"hidden-field", type: "file", name: "review[images_attributes][2][image]", id: "review_images_attributes_2_image" }
+            %input{class:"hidden-field", type: "file", name: "review[images_attributes][3][image]", id: "review_images_attributes_3_image" }
+            %input{class:"hidden-field", type: "file", name: "review[images_attributes][4][image]", id: "review_images_attributes_4_image" }
+      = f.submit 'レビューを投稿', class: 'btn'
 
-  = link_to root_path do
-    トップへ
+    = link_to root_path do
+      トップへ
 
 :javascript
   $('#star').raty({

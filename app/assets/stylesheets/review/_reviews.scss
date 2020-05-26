@@ -6,6 +6,10 @@ h2{
   text-align: center;
 }
 
+.conteiner{
+	padding:160px;
+}
+
 .top {
   background: image-url('game');
   background-size: cover;
@@ -28,7 +32,7 @@ h2{
 }
 
 .game {
-  animation: slider 20s infinite ease;/* スピード */
+  animation: slider 20s infinite ease;
 	display: flex;
 	&-img{
 		&__image{
@@ -92,8 +96,3 @@ h2{
 	transform: translateX(0);
 	}
 }
-
-.conteiner{
-	padding:80px;
-}
-
