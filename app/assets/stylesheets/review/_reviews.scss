@@ -16,7 +16,10 @@ h2{
   // background-position: center top;
   // background-repeat: no-repeat;
   // height: 100vh;
-  // width: 100%;
+	// width: 100%;
+	&-conteiner{
+		padding:80px;
+	}
 }
 
 .genre{
