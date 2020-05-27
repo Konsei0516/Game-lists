@@ -13,6 +13,9 @@
     display: flex;
     list-style: none;
     padding-left:240px;
+    a{
+      text-decoration: none;
+    }
     &__content{
       padding:16px;
       line-height: 80px;

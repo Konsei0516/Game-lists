@@ -1,0 +1,10 @@
+.review{
+  &-wrapper{
+    display: grid;
+    margin: 2rem 0 0;
+    padding: .8em;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 1fr;
+    grid-gap: 2.5rem;
+  }
+}

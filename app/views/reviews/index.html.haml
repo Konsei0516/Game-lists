@@ -38,7 +38,7 @@
           %a{:href => "https://www.nintendo.co.jp/switch/aab6a/index.html", :target => "_blank", class:"game-img__image"}
             = image_tag asset_path("splatoon.jpg", alt: "ゲーム画像10"),width: "300", height: '240'
 %section.index
-  .index-box
+  .review
     %h2 投稿一覧
-    .contents
+    .review-wrapper
       = render @reviews
