@@ -1,0 +1,38 @@
+.card{
+  height: 400px;
+  width: 280px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px black;
+  margin: 30px 10px;
+  a{
+    text-decoration: none;
+  }
+  &-content{
+    display: block;
+    &__image{
+      border-radius: 5px 5px 0 0;
+      max-width: 100%;
+      height: 200px;
+      border-bottom: 1px solid #eef;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+    &__description{
+      font-size: 14px;
+      line-height: 1;
+      color: #777;
+      overflow: hidden;
+      white-space: normal;
+      text-overflow: ellipsis;
+      height: 40px;
+    }
+  }
+  &-user{
+    border-top: 1px solid #eee;
+    padding: 10px;
+    color: #777;
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+  }
+}
