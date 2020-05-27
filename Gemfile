@@ -74,6 +74,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
+gem 'kaminari'
 
 gem 'dotenv-rails'
 

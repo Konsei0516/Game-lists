@@ -1,11 +1,12 @@
-- @reviews.each do |review|
+.card
   = link_to review_path(review) do
-    .content
-      %p
+    .card-content
+      = image_tag review.images[0].image.url,class:"card-content__image"
+      %h2.card-content__title
         = review.title
-      %p
+      %p.card-content__description
         = review.description
-      %h4.mb-3
+      %h4.card-content__rate
         評価：
         = review.rate
       %div{:id => "star-rate-#{review.id}"}
@@ -19,9 +20,14 @@
           readOnly: true,
           score: #{review.rate},
         });
+      %h4.card-content__category
       - review.categories.each do |category|
         = category.name
-      - review.images.each do |image|
-        = image_tag image.image.url
-= link_to '編集', edit_review_path(review)
-= link_to '削除', review_path(review), method: :delete
+    .btn-box
+      .edit-btn
+        = link_to '編集', edit_review_path(review)
+      .delete-btn
+        = link_to '削除', review_path(review), method: :delete
+    .card-user
+      = review.user.name
+

@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   before_action :set_category, only: %i[index new create edit update]
 
   def index
-    @reviews = Review.includes(:images).order('created_at DESC')
+    @reviews = Review.includes(:images).order('created_at DESC').page(params[:page]).per(8)
   end
 
   def new
@@ -48,7 +48,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :descreption, :rate, category_ids: [], images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:review).permit(:title, :description, :rate, category_ids: [], images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def set_review

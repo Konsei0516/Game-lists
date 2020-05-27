@@ -5,6 +5,7 @@
   background-color: cyan;
   font-size: 24px;
   position: fixed;
+  z-index: 2;
   .header-nav{
     float: left;
   }
@@ -12,6 +13,9 @@
     display: flex;
     list-style: none;
     padding-left:240px;
+    a{
+      text-decoration: none;
+    }
     &__content{
       padding:16px;
       line-height: 80px;
