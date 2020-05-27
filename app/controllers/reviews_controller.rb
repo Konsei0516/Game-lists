@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   before_action :set_category, only: %i[index new create edit update]
 
   def index
-    @reviews = Review.includes(:images).order('created_at DESC')
+    @reviews = Review.includes(:images).order('created_at DESC').page(params[:page]).per(8)
   end
 
   def new
