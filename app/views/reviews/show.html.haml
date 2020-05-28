@@ -1,25 +1,40 @@
-= @review.title
-= @review.description
-= @review.rate
-%h4.mb-3
-  評価：#{@review.rate}点 | #{@review.title}
-%div{:id => "star-rate-#{@review.id}"}
-:javascript
-  $('#star-rate-#{@review.id}').raty({
-    size: 36,
-    starOff:  '#{asset_path('star-off.png')}',
-    starOn : '#{asset_path('star-on.png')}',
-    starHalf: '#{asset_path('star-half.png')}',
-    half: true,
-    readOnly: true,
-    score: #{@review.rate},
-  });
+= render "component/header"
 
-- @review.categories.each do |category|
-  = category.name
-- @review.images.each do |image|
-  = image_tag image.image.url
+.show-conteiner
+  .show
+    .show-box
+      .show-box__title
+        %p= @review.title
+        %p= @review.user.name
+        %p= @review.created_at.strftime("%Y/%m/%d/%w %H:%M")
+        .show-box__category
+          - @review.categories.each do |category|
+            .show-box__category__name
+              = category.name
+      .show-box__image
+        %h4 画像
+        = image_tag @review.images[0].image.url, class:"show-box__image-src"
+        .show-box__image-srcs
+          - @review.images.each do |image|
+            = image_tag image.image.url, class:"show-box__image-srcs__list"
+      .show-box__rate
+        %h4
+          %p 評価：#{@review.rate}点
+        %div{:id => "star-rate-#{@review.id}"}
+        :javascript
+          $('#star-rate-#{@review.id}').raty({
+            size: 36,
+            starOff:  '#{asset_path('star-off.png')}',
+            starOn : '#{asset_path('star-on.png')}',
+            starHalf: '#{asset_path('star-half.png')}',
+            half: true,
+            readOnly: true,
+            score: #{@review.rate},
+          });
+      .show-box__description
+        %h4 説明
+        %p= @review.description
 
-  = link_to root_path do
-    トップへ
+= link_to root_path do
+  トップへ
 
