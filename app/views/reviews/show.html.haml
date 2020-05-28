@@ -1,25 +1,15 @@
-= @review.title
-= @review.description
-= @review.rate
-%h4.mb-3
-  評価：#{@review.rate}点 | #{@review.title}
-%div{:id => "star-rate-#{@review.id}"}
-:javascript
-  $('#star-rate-#{@review.id}').raty({
-    size: 36,
-    starOff:  '#{asset_path('star-off.png')}',
-    starOn : '#{asset_path('star-on.png')}',
     starHalf: '#{asset_path('star-half.png')}',
-    half: true,
-    readOnly: true,
-    score: #{@review.rate},
-  });
+= render "component/header"
 
 - @review.categories.each do |category|
   = category.name
 - @review.images.each do |image|
   = image_tag image.image.url
+      .show-box__category
+        %h4 カテゴリー
+        - @review.categories.each do |category|
+          = category.name
 
-  = link_to root_path do
-    トップへ
+= link_to root_path do
+  トップへ
 
