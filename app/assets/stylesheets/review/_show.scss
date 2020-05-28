@@ -1,5 +1,5 @@
 .show-conteiner{
-  padding:80px;
+  padding:100px;
 }
 
 .show{
@@ -29,12 +29,22 @@
       padding: 15px 0;
       box-shadow: 0 2px 6px #c1ced7;
       &-src{
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
         display: block;
         margin: 0 auto;
-        border-radius: 5%;
+        border-radius: 3%;
         object-fit: cover;
+      }
+      &-srcs{
+        display:flex;
+        justify-content: center;
+        margin:0 auto;
+        &__list{
+          width:80px;
+          height:80px;
+          padding:1rem;
+        }
       }
     }
     &__description{
