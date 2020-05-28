@@ -1,7 +1,8 @@
 .header
   .header-nav
     %h1.app-name
-      Game review
+      = link_to root_path do
+        Game review
   -if user_signed_in?
     %ul.header-contents
       %li.header-contents__content
