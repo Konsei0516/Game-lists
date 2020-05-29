@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   root to: "reviews#index"
   resources :reviews do
+    resources :likes, only: [:create, :destroy]
     collection do
       get 'rakuten_search', to: 'reviews#rakuten_search'
     end
