@@ -1,4 +1,5 @@
 = render "component/header"
+.overlay
 
 .show-conteiner
   .show
@@ -36,6 +37,10 @@
       .show-box__description
         %h4 説明
         %p= @review.description
+        .btn-box__comment-btn.btn-box__btn
+          = icon 'fas', 'comment'
+          %p コメントする
+    
     .comment-wrapper
       %p.mt-5 コメント一覧
       - @comments.each do |c|
@@ -47,11 +52,12 @@
           = c.content
         %br/
       - if user_signed_in?
-        = form_with(model: [@review, @comment], local: true) do |f|
-          = f.text_area :content, class: "form-control", rows: 5
-          = button_tag type: "submit", class: "comment-btn" do
-            %i.far.fa-comments
-            コメントする
+        = form_with(model: [@review, @comment], local: true, class:'comment-box') do |f|
+          = f.text_area :content, class:"comment-box__input", rows: 5
+          .comment-box__btn
+            = button_tag type: "submit", class: "comment-box__btn--comment" do
+              コメントする
+            .comment-box__btn--close 閉じる
 
 
 = link_to root_path do
