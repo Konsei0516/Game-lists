@@ -30,4 +30,5 @@
         = link_to '削除', review_path(review), method: :delete
     .card-user
       = review.user.name
-
+      %div{:id => "likes_buttons_#{review.id}"}
+        = render partial: 'likes/like', locals: { review: review, likes: @likes}

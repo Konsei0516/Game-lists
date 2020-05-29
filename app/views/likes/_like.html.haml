@@ -1,0 +1,24 @@
+- if user_signed_in?
+  - unless review.like_user(current_user.id).blank?
+    = link_to review_like_path(review_id: review.id ,id: review.likes[0].id), method: :delete, remote: true do
+      .vertical_like
+        %i.fas.fa-star
+        %span.red-text
+          = review.likes_count
+  - else
+    = link_to review_likes_path(review.id), method: :post, remote: true do
+      .vertical_like
+        %i.far.fa-star
+        %span.grey-text.text-darken-2
+          = review.likes_count
+- else
+  - if review.likes_count > 0
+    .vertical_like
+      %i.fas.fa-star
+      %span.red-text
+        = review.likes_count
+  - else
+    .vertical_like
+      %i.far.fa-star
+      %span.grey-text.text-darken-2
+        = review.likes_count

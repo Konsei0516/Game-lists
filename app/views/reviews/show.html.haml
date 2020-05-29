@@ -11,6 +11,8 @@
           - @review.categories.each do |category|
             .show-box__category__name
               = category.name
+        %div{:id => "likes_buttons_#{@review.id}"}
+          = render partial: 'likes/like', locals: { review: @review, likes: @likes}
       .show-box__image
         %h4 画像
         = image_tag @review.images[0].image.url, class:"show-box__image-src"
