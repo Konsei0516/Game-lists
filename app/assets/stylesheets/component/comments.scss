@@ -17,6 +17,9 @@
   display: none;
   margin-top: 4rem;
   text-align: center;
+  &__title{
+    color: white;
+  }
   &__input{
     background-color: white;
     margin-top: 2rem;

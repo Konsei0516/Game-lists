@@ -14,8 +14,11 @@
   border-radius: 0.3rem;
 }
 
-.comment-btn{
+.btn-box__comment-btn{
   padding:0.5rem;
   background-color: rgb(50, 148, 205);
   border-radius: 0.3rem;
+  width:20%;
+  margin:0 auto;
+  cursor: pointer;
 }

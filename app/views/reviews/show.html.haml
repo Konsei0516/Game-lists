@@ -37,12 +37,9 @@
       .show-box__description
         %h4 説明
         %p= @review.description
-        .btn-box__comment-btn.btn-box__btn
-          = icon 'fas', 'comment'
-          %p コメントする
     
     .comment-wrapper
-      %p.mt-5 コメント一覧
+      %p コメント一覧
       - @comments.each do |c|
         %div
           - unless c.user.blank?
@@ -50,14 +47,17 @@
           = c.user.name unless c.user.blank?
           %br/
           = c.content
-        %br/
       - if user_signed_in?
         = form_with(model: [@review, @comment], local: true, class:'comment-box') do |f|
+          %h2.comment-box__title コメント
           = f.text_area :content, class:"comment-box__input", rows: 5
           .comment-box__btn
             = button_tag type: "submit", class: "comment-box__btn--comment" do
               コメントする
             .comment-box__btn--close 閉じる
+      .btn-box__comment-btn
+        = icon 'fas', 'comment'
+        コメントする
 
 
 = link_to root_path do
