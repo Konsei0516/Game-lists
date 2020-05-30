@@ -4,6 +4,7 @@ class Review < ApplicationRecord
   has_many :post_category_relations, dependent: :destroy
   has_many :categories, through: :post_category_relations
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def like_user(user_id)
     likes.find_by(user_id: user_id)

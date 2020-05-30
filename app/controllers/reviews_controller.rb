@@ -12,6 +12,8 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @comments = @review.comments
+    @comment = @review.comments.build
   end
 
   def create
