@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'likes/create'
-  get 'likes/destroy'
   get 'youtubes/index'
   devise_for :users, controllers:{
     registrations: 'users/registrations',
@@ -13,6 +11,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     collection do
       get 'rakuten_search', to: 'reviews#rakuten_search'
+      get 'search', to: 'reviews#search'
     end
   end
 
