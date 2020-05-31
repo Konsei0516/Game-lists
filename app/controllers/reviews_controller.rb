@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, except: [:index,:new, :create,:rakuten_search,:search]
-  before_action :set_category, only: %i[index new create edit update]
+  before_action :set_category, only: %i[index new create edit update search]
 
   def index
     @reviews = Review.includes(:images).order('created_at DESC').page(params[:page]).per(8)

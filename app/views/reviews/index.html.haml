@@ -1,9 +1,9 @@
 = render "component/header"
 .top
   .top-conteiner
-    = render 'search_form'
     .review
       %h2 投稿一覧
+      = render 'search_form'
       .review-wrapper
         = render @reviews
     = paginate @reviews

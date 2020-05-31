@@ -1,4 +1,6 @@
 = search_form_for(@q, url: search_reviews_path) do |f|
   = f.label :title, "Keyword"
   = f.search_field :title_cont
+  = f.label :category_id_eq, 'カテゴリー'
+  = f.collection_select :categories_id_eq, @categories, :id, :name
   = f.submit "検索"
