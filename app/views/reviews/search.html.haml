@@ -1,5 +1,14 @@
-= render 'search_form'
-= render @reviews
+= render "component/header"
 
-= link_to root_path do
-  トップへ
+.search
+  .search__side
+    = render 'search_form'
+    
+    
+  .search__main  
+    .search__main__box  
+      = render @reviews
+    = paginate @reviews
+
+  = link_to root_path do
+    トップへ

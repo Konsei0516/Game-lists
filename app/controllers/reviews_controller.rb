@@ -5,7 +5,6 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.includes(:images).order('created_at DESC').page(params[:page]).per(8)
     @q = Review.ransack(params[:q])
-    @review = @q.result(distinct: true)
   end
 
   def new
@@ -45,7 +44,7 @@ class ReviewsController < ApplicationController
 
   def search
     @q = Review.search(search_params)
-    @reviews = @q.result(distinct: true)
+    @reviews = @q.result(distinct: true).page(params[:page]).per(9)
   end
 
   def rakuten_search
