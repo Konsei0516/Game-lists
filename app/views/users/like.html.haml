@@ -12,15 +12,13 @@
     %p
       = @user.friend_code
   .user-box__main
-    %h2 レビュー一覧
+    %h2 お気に入り一覧
     %nav.user-select
       = link_to 'ユーザーレビュー', user_path(@user)
       = link_to("いいね一覧", "/users/#{@user.id}/like")
     .user-box__main__review
-      = render @reviews
-      = paginate @reviews
+      = render 'like'
+      = paginate @likes
   
   = link_to root_path do
     トップへ
-
-

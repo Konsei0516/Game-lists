@@ -1,0 +1,33 @@
+.card
+  - @likes.each do |review|
+    = link_to review_path(review) do
+      .card-content
+        = image_tag review.review.images[0].image.url,class:"card-content__image"
+        %h2.card-content__title
+          = review.review.title
+        %p.card-content__description
+          = review.review.description
+        %h4.card-content__rate
+          評価：
+          = review.review.rate
+        %div{:id => "star-rate-#{review.review.id}"}
+        :javascript
+          $('#star-rate-#{review.review.id}').raty({
+            size: 36,
+            starOff:  '#{asset_path('star-off.png')}',
+            starOn : '#{asset_path('star-on.png')}',
+            starHalf: '#{asset_path('star-half.png')}',
+            half: true,
+            readOnly: true,
+            score: #{review.review.rate},
+          });
+        %h4.card-content__category
+        - review.review.categories.each do |category|
+          = category.name
+      .btn-box
+        .edit-btn
+          = link_to '編集', edit_review_path(review)
+        .delete-btn
+          = link_to '削除', review_path(review), method: :delete
+      .card-user
+        = review.review.user.name

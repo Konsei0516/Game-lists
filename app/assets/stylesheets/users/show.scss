@@ -1,0 +1,24 @@
+.user-warrper{
+  padding:100px;
+}
+
+.user-box__side{
+  float: left;
+  background-color: rgba(255, 255, 255, 0.603);
+  width:20%;
+  padding:2rem;
+}
+
+.user-box__main{
+  float: right;
+  width:80%;
+  height:auto;
+  padding:2rem;
+  &__review{
+    display: grid;
+    margin: 1.5rem 0 0;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 1fr;
+    grid-gap: 1rem;
+  }
+}
