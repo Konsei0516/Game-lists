@@ -5,10 +5,10 @@ $(document).on('turbolinks:load', function(){
     let commentClose = $('.comment-box__btn--close');
     let commentBox   = $('.comment-box');
 
-  commentBtn.click(function() {
-    overlay.fadeIn();
-    commentBox.fadeIn();
-  });
+    commentBtn.click(function() {
+      overlay.fadeIn();
+      commentBox.fadeIn();
+    });
 
     commentClose.click(function() {
       overlay.fadeOut();
