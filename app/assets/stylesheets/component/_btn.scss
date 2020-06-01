@@ -22,3 +22,16 @@
   margin:0 auto;
   cursor: pointer;
 }
+
+.search-btn{
+  padding-top:1rem;
+  color: white;
+  &__on{
+  background-color: #3CCACE;
+  border: solid 1px #3CCACE;
+  border-radius: 2rem;
+  width: 90%;
+  font-size: 20px;
+  height:3rem;
+  }
+}

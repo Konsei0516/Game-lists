@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, except: [:index,:new, :create,:rakuten_search]
-  before_action :set_category, only: %i[index new create edit update]
+  before_action :set_review, except: [:index,:new, :create,:rakuten_search,:search]
+  before_action :set_category, only: %i[index new create edit update search]
 
   def index
     @reviews = Review.includes(:images).order('created_at DESC').page(params[:page]).per(8)
+    @q = Review.ransack(params[:q])
   end
 
   def new
@@ -41,6 +42,11 @@ class ReviewsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @q = Review.search(search_params)
+    @reviews = @q.result(distinct: true).page(params[:page]).per(9)
+  end
+
   def rakuten_search
     if params[:keyword]
       @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword],hits: 10)
@@ -59,5 +65,9 @@ class ReviewsController < ApplicationController
 
   def set_category
     @categories = Category.all
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 end
