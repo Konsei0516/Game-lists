@@ -3,11 +3,13 @@
 .search
   .search__side
     = render 'search_form'
-    
-    
   .search__main  
-    .search__main__box  
-      = render @reviews
+    %h2 検索結果
+    .search__main__box
+      - if @reviews.exists?
+        = render @reviews
+      - else
+        %h2 レビューが見つかりません
     = paginate @reviews
 
   = link_to root_path do

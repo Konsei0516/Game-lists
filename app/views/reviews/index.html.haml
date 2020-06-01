@@ -2,8 +2,11 @@
 .top
   .top-conteiner
     .review
-      %h2 投稿一覧
-      = render 'search_form'
+      %h2 みんなのレビュー
+      .index-search
+        = search_form_for(@q, url: search_reviews_path) do |f|
+          = f.search_field :title_cont,placeholder: "フリーワード検索",class:"index-search__box"
+          = f.submit "検索",class:"index-search__btn"
       .review-wrapper
         = render @reviews
     = paginate @reviews
