@@ -22,10 +22,8 @@
         = link_to 'ユーザーレビュー', user_path(@user)
         = link_to("お気に入り一覧", "/users/#{@user.id}/like")
     .user-box__main__review
-      = render @reviews
-      = paginate @reviews
+      = render 'like'
+      = paginate @likes
   
   = link_to root_path do
     トップへ
-
-

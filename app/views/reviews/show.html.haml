@@ -37,6 +37,12 @@
       .show-box__description
         %h4 説明
         %p= @review.description
+      .btn-box
+        - if current_user.id == @review.user.id
+          .edit-btn
+            = link_to '編集', edit_review_path(@review)
+          .delete-btn
+            = link_to '削除', review_path(@review), method: :delete
     
     .comment-wrapper
       %p コメント一覧

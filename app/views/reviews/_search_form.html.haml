@@ -1,5 +1,5 @@
 .search__form
-  = search_form_for(@q, url: search_reviews_path) do |f|
+  = search_form_for(@q, url: search_reviews_path,class:"search-form__for") do |f|
     .search__form__group
       %h4= f.label :title, "フリーワード検索"
       = f.search_field :title_cont,placeholder: "フリーワード検索",class:"search__form__group__title"

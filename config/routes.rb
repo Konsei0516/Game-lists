@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get "users/:id/like" => "users#like"
   resources :users
 end
