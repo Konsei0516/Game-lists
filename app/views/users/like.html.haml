@@ -15,6 +15,7 @@
     .user-box__side__profile
       %h4 NintendID
       %p= @user.friend_code
+    = link_to '編集', edit_user_registration_path
   .user-box__main
     %nav.user-select
       .user-select__nav
