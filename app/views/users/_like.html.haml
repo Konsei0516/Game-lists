@@ -1,6 +1,6 @@
-.card
-  - @likes.each do |review|
-    = link_to review_path(review) do
+- @likes.each do |review|
+  .card
+    = link_to review_path(review.review) do
       .card-content
         = image_tag review.review.images[0].image.url,class:"card-content__image"
         %h2.card-content__title

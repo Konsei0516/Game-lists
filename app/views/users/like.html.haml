@@ -3,19 +3,23 @@
 .user-warrper
   %h1 ユーザープロフィール
   .user-box__side
-    %p 
-      = @user.name
-    %p
-      = @user.profile
-    %p
-      = @user.PSN_id
-    %p
-      = @user.friend_code
+    .user-box__side__profile
+      %h4 ユーザーネーム
+      %p= @user.name
+    .user-box__side__profile
+      %h4 プロフィール
+      %p= @user.profile
+    .user-box__side__profile
+      %h4 PSNID
+      %p= @user.PSN_id
+    .user-box__side__profile
+      %h4 NintendID
+      %p= @user.friend_code
   .user-box__main
-    %h2 お気に入り一覧
     %nav.user-select
-      = link_to 'ユーザーレビュー', user_path(@user)
-      = link_to("いいね一覧", "/users/#{@user.id}/like")
+      .user-select__nav
+        = link_to 'ユーザーレビュー', user_path(@user)
+        = link_to("お気に入り一覧", "/users/#{@user.id}/like")
     .user-box__main__review
       = render 'like'
       = paginate @likes
