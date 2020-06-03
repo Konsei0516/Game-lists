@@ -1,4 +1,63 @@
-= render "form"
+= render "component/header"
+
+.game-new
+  .conteiner
+    .sent
+      %h1 ゲームレビュー
+      = form_for @review do |f|
+        .sent-title
+          %h3 タイトル名
+          = f.text_field :title, class: "review-field"
+        .sent-description
+          %h3 説明
+          = f.text_field :description, class: "review-text"
+        #star
+          .sent-rate
+            %h3= f.label :rate,'評価', class:'col-md-3 col-form-label'
+            = f.hidden_field :rate, id: :review_star
+        .sent-category
+          %h3= f.label :category, 'カテゴリ'
+          = f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category|
+            = category.label do
+              = category.check_box
+              = category.text
+        .sent-image
+          %h3 画像
+          .post__drop__box__container
+            .prev-content
+              - @review.images.each do |image|
+                .preview-box
+                  .upper-box
+                    = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                  .lower-box
+                    .update-box
+                      %label.edit_btn 編集
+                    .delete-box
+                      .delete_btn
+                        %span 削除
+            .label-content
+              = f.label :"images_attributes_#{@review.images.length}_image", class: "label-box", id: "label-box--#{@review.images.length}" do
+                %pre.label-box__text-visible クリックしてファイルをアップロード
+            .hidden-content
+              = f.fields_for :images do |i|
+                = i.file_field :image, class: "hidden-field"
+                = i.check_box:_destroy, class: "hidden-checkbox"
+              - @review.images.length.upto(4) do |i|
+                %input{name: "review[images_attributes][#{i}][image]", id: "review_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+          = f.submit 'レビューを投稿', class: 'btn'
+
+    = link_to root_path do
+      トップへ
+
+:javascript
+  $('#star').raty({
+    size   : 36,
+    starOff: '#{asset_path('star-off.png')}',
+    starOn : '#{asset_path('star-on.png')}',
+    starHalf: '#{asset_path('star-half.png')}',
+    scoreName: 'review[rate]',
+    half: true,
+  }); 
 
 = link_to root_path do
   トップへ
