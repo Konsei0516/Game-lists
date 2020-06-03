@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    if @review.update(review_params)
+    if @review.update(update_review_params)
       redirect_to root_path
     else
       render :edit
@@ -61,6 +61,12 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find(params[:id])
+  end
+
+  def update_review_params
+    params.require(:review).permit(
+    :title,:description, :rate, category_ids: [],
+    images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def set_category
