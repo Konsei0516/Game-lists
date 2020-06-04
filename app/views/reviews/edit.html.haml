@@ -16,7 +16,7 @@
             %h3= f.label :rate,'評価', class:'col-md-3 col-form-label'
             = f.hidden_field :rate, id: :review_star
         .sent-category
-          %h3= f.label :category, 'カテゴリ'
+          %h3= f.label :category, 'カテゴリ-'
           = f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category|
             = category.label do
               = category.check_box
