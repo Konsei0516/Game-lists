@@ -35,3 +35,14 @@
   height:3rem;
   }
 }
+
+.youtube-btn{
+  padding:0.5rem;
+  background-color: rgb(233, 16, 81);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  color: white;
+  &__on{
+    width:56%;
+  }
+}
