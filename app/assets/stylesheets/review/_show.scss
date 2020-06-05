@@ -4,15 +4,15 @@
 
 .show{
   width: 800px;
-  margin: 0 auto;
   height: 100%;
   overflow: hidden;
   box-shadow: 0 2px 6px #c1ced7;
+  margin: 0 auto;
   &-box{
-    width: 800px;
     height: 100%;
     overflow: hidden;
     box-shadow: 0 2px 6px #c1ced7;
+    position: relative;
     &__title{
       padding:24px;
       font-size: 1.0rem;
@@ -20,9 +20,14 @@
       display: block;
       font-weight: bold;
     }
+    &__like{
+      font-size: 1.2rem;
+      position: absolute;
+      right: 24px;
+      bottom: 10px;
+    }
     &__image{
       cursor: pointer;
-      width: 800px;
       height: 100%;
       overflow: hidden;
       margin-top: 10px;
@@ -41,9 +46,10 @@
         justify-content: center;
         margin:0 auto;
         &__list{
-          width:80px;
-          height:80px;
+          width:100px;
+          height:100px;
           padding:1rem;
+          border-radius: 20%;
         }
       }
     }
@@ -63,9 +69,20 @@
       display: block;
       font-size: 1rem;
       margin: 0 auto;
+      width:9rem;
       &__name{
-        color: #fff;
         background-color: #343a40;
+        display: inline;
+        padding: .2em .6em .3em;
+        font-size: 75%;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25em;
+        margin-right:0.2rem;
       }
     }
   }
