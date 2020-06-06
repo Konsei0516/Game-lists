@@ -24,10 +24,5 @@
         %h4.card-content__category
         - review.review.categories.each do |category|
           = category.name
-      .btn-box
-        .edit-btn
-          = link_to '編集', edit_review_path(review)
-        .delete-btn
-          = link_to '削除', review_path(review), method: :delete
       .card-user
         = review.review.user.name

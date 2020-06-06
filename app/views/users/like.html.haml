@@ -1,8 +1,9 @@
 = render 'component/header'
 
 .user-warrper
-  %h1 ユーザープロフィール
   .user-box__side
+    .user-box__side__profile
+      %h3 プロフィール
     .user-box__side__profile
       %h4 ユーザーネーム
       %p= @user.name

@@ -8,14 +8,13 @@
         %p= @review.title
         %p= @review.user.name
         %p= @review.created_at.strftime("%Y/%m/%d/%w %H:%M")
-        .show-box__category
-          - @review.categories.each do |category|
-            .show-box__category__name
-              = category.name
-        %div{:id => "likes_buttons_#{@review.id}"}
-          = render partial: 'likes/like', locals: { review: @review, likes: @likes}
+        - @review.categories.each do |category|
+          %span.show-box__category__name
+            = category.name
+        .show-box__like
+          %div{:id => "likes_buttons_#{@review.id}"}
+            = render partial: 'likes/like', locals: { review: @review, likes: @likes}
       .show-box__image
-        %h4 画像
         = image_tag @review.images[0].image.url, class:"show-box__image-src"
         .show-box__image-srcs
           - @review.images.each do |image|
@@ -44,28 +43,27 @@
           .delete-btn
             = link_to '削除', review_path(@review), method: :delete
     
-    .comment-wrapper
-      %p コメント一覧
-      - @comments.each do |c|
-        %div
-          - unless c.user.blank?
-            %a{:href => "#{user_path(c.user_id)}"}= image_tag c.user.image.to_s, class:"rounded-circle icon_image mr-3 mb-3"
-          = c.user.name unless c.user.blank?
-          %br/
-          = c.content
-      - if user_signed_in?
-        = form_with(model: [@review, @comment], local: true, class:'comment-box') do |f|
-          %h2.comment-box__title コメント
-          = f.text_area :content, class:"comment-box__input", rows: 5
-          .comment-box__btn
-            = button_tag type: "submit", class: "comment-box__btn--comment" do
-              コメントする
-            .comment-box__btn--close 閉じる
-      .btn-box__comment-btn
-        = icon 'fas', 'comment'
-        コメントする
+  .comment-wrapper
+    %h2 コメント一覧
+    - @comments.each do |c|
+      .comment-wrapper__result
+        - unless c.user.blank?
+          %a{:href => "#{user_path(c.user_id)}"}= image_tag c.user.image.to_s, class:"rounded-circle icon_image mr-3 mb-3"
+        = c.user.name unless c.user.blank?
+        %br/
+        %p= c.content
+    - if user_signed_in?
+      = form_with(model: [@review, @comment], local: true, class:'comment-box') do |f|
+        %h2.comment-box__title コメント
+        = f.text_area :content, class:"comment-box__input", rows: 5
+        .comment-box__btn
+          = button_tag type: "submit", class: "comment-box__btn--comment" do
+            コメントする
+          .comment-box__btn--close 閉じる
+    .btn-box__comment-btn
+      = icon 'fas', 'comment'
+      コメント
 
 
 = link_to root_path do
   トップへ
-

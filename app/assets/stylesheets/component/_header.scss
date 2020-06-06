@@ -2,10 +2,14 @@
   width:100%;
   height: 80px;
   color:white;
-  background-color: cyan;
+  background-color: rgb(0, 81, 255);
   font-size: 24px;
   position: fixed;
   z-index: 2;
+  a{
+    text-decoration: none;
+    color:white;
+  }
   .header-nav{
     float: left;
   }
@@ -36,5 +40,5 @@
 }
 
 .app-name{
-  padding:10px;
+  padding:2rem;
 }

@@ -2,7 +2,6 @@
   padding: 4rem;
   &__side{
     float: left;
-    background-color: rgba(255, 255, 255, 0.603);
     width:20%;
   }
   &__main{
@@ -73,12 +72,28 @@
   }
   &__btn{
     margin-top: 10px;
-    background-color: #3CCACE;
-    border: solid 1px #3CCACE;
+    background-color: rgb(60, 70, 206);
+    border: solid 1px rgb(60, 70, 206);
     border-radius: 0.6rem;
     width: 30%;
     font-size: 20px;
     height:50px;
     color:white;
+  }
+}
+
+.rakuten{
+  padding:6rem;
+  &-search{
+    width:50%;
+    margin-top:2rem;
+    height: 2.5rem;
+    &__input{
+      width: 90%;
+      font-size: 18px;
+      background-color: white;
+      border: solid 1px gray;
+      height: 2.5rem;
+    }
   }
 }

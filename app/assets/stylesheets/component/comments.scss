@@ -9,6 +9,15 @@
 
 .comment-wrapper{
   padding:1.5rem;
+  border: 2px solid rgb(33, 30, 235);
+  width:600px;
+  margin:2rem auto;
+  p{
+    font-size:16px;
+  }
+  &__result{
+    margin-top:1rem;
+  }
 }
 
 .comment-box{
@@ -46,6 +55,7 @@
     justify-content: space-around;
     margin: 0 auto;
     width: 60%;
+    color: #fff;
     &--comment{
       display: inline-block;
       margin-top: 2rem;
