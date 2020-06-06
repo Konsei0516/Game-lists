@@ -20,10 +20,14 @@
           readOnly: true,
           score: #{review.rate},
         });
-      %h4.card-content__category
-      - review.categories.each do |category|
-        = category.name
+      %span.show-box__category__name
+        - review.categories.each do |category|
+          = category.name
     .card-user
       = link_to review.user.name, user_path(review.user.id)
-      %div{:id => "likes_buttons_#{review.id}"}
-        = render partial: 'likes/like', locals: { review: review, likes: @likes}
+      .card-user__count
+        %div{:id => "likes_buttons_#{review.id}"}
+          = render partial: 'likes/like', locals: { review: review, likes: @likes}
+        .card-user__comment-count
+          = icon 'fas', 'comment'  
+          = review.comments.count
