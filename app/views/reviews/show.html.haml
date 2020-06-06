@@ -44,14 +44,14 @@
             = link_to '削除', review_path(@review), method: :delete
     
   .comment-wrapper
-    %p コメント一覧
+    %h2 コメント一覧
     - @comments.each do |c|
-      %div
+      .comment-wrapper__result
         - unless c.user.blank?
           %a{:href => "#{user_path(c.user_id)}"}= image_tag c.user.image.to_s, class:"rounded-circle icon_image mr-3 mb-3"
         = c.user.name unless c.user.blank?
         %br/
-        = c.content
+        %p= c.content
     - if user_signed_in?
       = form_with(model: [@review, @comment], local: true, class:'comment-box') do |f|
         %h2.comment-box__title コメント
@@ -62,7 +62,7 @@
           .comment-box__btn--close 閉じる
     .btn-box__comment-btn
       = icon 'fas', 'comment'
-      コメントする
+      コメント
 
 
 = link_to root_path do
